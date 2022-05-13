@@ -8,4 +8,6 @@ jobs:
     steps:
       - name: pulling git repo
         uses: actions/checkout@v2
+      -name : test
+       run: echo "hello"
       
