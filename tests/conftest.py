@@ -13,7 +13,7 @@ from app import models
 from alembic import command
 
 
-# SQLALCHEMY_DATABASE_URL = 'postgresql://postgres:password123@localhost:5432/fastapi_test'
+
 SQLALCHEMY_DATABASE_URL = f'postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}_test'
 
 
@@ -49,8 +49,8 @@ def client(session):
 
 @pytest.fixture
 def test_user2(client):
-    user_data = {"email": "sanjeev123@gmail.com",
-                 "password": "password123"}
+    user_data = {"email": "kat@gmail.com",
+                 "password": "password"}
     res = client.post("/users/", json=user_data)
 
     assert res.status_code == 201
@@ -62,8 +62,8 @@ def test_user2(client):
 
 @pytest.fixture
 def test_user(client):
-    user_data = {"email": "sanjeev@gmail.com",
-                 "password": "password123"}
+    user_data = {"email": "ethan@gmail.com",
+                 "password": "password"}
     res = client.post("/users/", json=user_data)
 
     assert res.status_code == 201
@@ -91,8 +91,8 @@ def authorized_client(client, token):
 @pytest.fixture
 def test_titles(test_user, session, test_user2):
     titles_data = [{
-        "title": "first title",
-        "content": "first content",
+        "title": "Dick Johnson Is Dead",
+        "show_id": "s1",
         "owner_id": test_user['id']
     }, {
         "title": "2nd title",
@@ -116,8 +116,6 @@ def test_titles(test_user, session, test_user2):
     titles = list(title_map)
 
     session.add_all(titles)
-    # session.add_all([models.Post(title="first title", content="first content", owner_id=test_user['id']),
-    #                 models.Post(title="2nd title", content="2nd content", owner_id=test_user['id']), models.Post(title="3rd title", content="3rd content", owner_id=test_user['id'])])
     session.commit()
 
     titles = session.query(models.Title).all()
