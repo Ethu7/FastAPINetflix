@@ -93,20 +93,36 @@ def test_titles(test_user, session, test_user2):
     titles_data = [{
         "title": "Dick Johnson Is Dead",
         "show_id": "s1",
+        "type":"Movie",
+        "release_year":"2020",
+        "listed_in":"Documentaries",
+        "description":"As her father nears the end of his life, filmmaker Kirsten Johnson stages his death in inventive and comical ways to help them both face the inevitable.",
         "owner_id": test_user['id']
     }, {
-        "title": "2nd title",
-        "content": "2nd content",
+        "title": "Blood & Water",
+        "show_id": "s2",
+        "type":"TV Show",
+        "release_year":"2021",
+        "listed_in":"International TV Shows, TV Dramas, TV Mysteries",
+        "description":"After crossing paths at a party, a Cape Town teen sets out to prove whether a private-school swimming star is her sister who was abducted at birth.",
         "owner_id": test_user['id']
     },
         {
-        "title": "3rd title",
-        "content": "3rd content",
+        "title": "Ganglands",
+        "show_id": "s3",
+        "type":"TV Show",
+        "release_year":"2021",
+        "listed_in":"Crime TV Shows, International TV Shows, TV Action & Adventure",
+        "description":"To protect his family from a powerful drug lord, skilled thief Mehdi and his expert team of robbers are pulled into a violent and deadly turf war.",
         "owner_id": test_user['id']
     }, {
-        "title": "3rd title",
-        "content": "3rd content",
-        "owner_id": test_user2['id']
+        "title": "Jailbirds New Orleans",
+        "show_id": "s4",
+        "type":"TV Show",
+        "release_year":"2021",
+        "listed_in":"Docuseries, Reality TV",
+        "description":"Feuds, flirtations and toilet talk go down among the incarcerated women at the Orleans Justice Center in New Orleans on this gritty reality series.",
+        "owner_id": test_user['id']
     }]
 
     def create_title_model(title):
