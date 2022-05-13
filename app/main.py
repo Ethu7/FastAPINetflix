@@ -32,5 +32,5 @@ app.include_router(titles.router)
 
 @app.get("/")
 def root():
-    return {"message": "Hello World pushing out to GCP"}
+    return {"message": "Welcome to the Netflix Titles API"}
 
