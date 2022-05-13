@@ -20,7 +20,7 @@ router = APIRouter(
 
 
 @router.get("/",response_model=Page[schemas.TitleOut])
-@router.get("/limit-offset", response_model=LimitOffsetPage[schemas.TitleOut])
+@router.get("/limit-offset", response_model=LimitOffsetPage[schemas.TitleOut],include_in_schema=False)
 def get_titles(db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user),
                  limit: int = 10, skip: int = 0, searchTitle: Optional[str] = "", ASC: int = 0,
                  params: Params = Depends()):

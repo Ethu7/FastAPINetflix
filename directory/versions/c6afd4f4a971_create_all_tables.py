@@ -1,9 +1,7 @@
 """create all tables
-
 Revision ID: c6afd4f4a971
 Revises: 
 Create Date: 2022-05-08 19:01:59.162010
-
 """
 from alembic import op
 import sqlalchemy as sa
