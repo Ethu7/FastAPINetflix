@@ -32,5 +32,5 @@ app.include_router(titles.router)
 
 @app.get("/")
 def root():
-    return {"message": "Welcome to the Netflix Titles API"}
+    return {"message": "Hello! Welcome to the Netflix Titles API"}
 
